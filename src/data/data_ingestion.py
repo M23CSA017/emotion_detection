@@ -60,7 +60,10 @@ def main() -> None:
         df = read_data(url)
         final_df = process_data(df)
         train_data, test_data = train_test_split(final_df, test_size=test_size, random_state=42)
-        data_path = os.path.join("data", "raw")
+        
+        # Set the relative path
+        data_path = os.path.join("data", "external")
+        
         save_data(data_path, train_data, test_data)
     except Exception as e:
         logging.error(f"Main execution error: {e}")

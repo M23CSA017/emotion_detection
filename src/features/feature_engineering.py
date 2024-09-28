@@ -57,8 +57,8 @@ def save_features(data_path: str, train_df: pd.DataFrame, test_df: pd.DataFrame,
 
 def main() -> None:
     try:
-        train_data_path = "./data/processed/train_processed.csv"
-        test_data_path = "./data/processed/test_processed.csv"
+        train_data_path = "./data/interim/train_processed.csv"
+        test_data_path = "./data/interim/test_processed.csv"
         params_path = "params.yaml"
 
         train_data = load_data(train_data_path)

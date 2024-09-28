@@ -59,7 +59,7 @@ def save_metrics(metrics: dict, file_path: str) -> None:
 def main() -> None:
     try:
         test_data_path = './data/features/test_bow.csv'
-        model_path = 'model.pkl'
+        model_path = './models/model.pkl'
         metrics_save_path = 'metrics.json'
 
         test_data = load_data(test_data_path)
@@ -74,3 +74,4 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+    

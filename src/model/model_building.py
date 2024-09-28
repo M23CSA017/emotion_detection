@@ -53,7 +53,7 @@ def main() -> None:
     try:
         data_path = "./data/features/train_bow.csv"
         params_path = "params.yaml"
-        model_save_path = "model.pkl"
+        model_save_path = "models/model.pkl"
 
         train_data = load_data(data_path)
         X_train = train_data.iloc[:, :-1].values

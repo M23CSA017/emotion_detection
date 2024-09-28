@@ -110,10 +110,12 @@ def save_processed_data(df: pd.DataFrame, file_path: str) -> None:
 def main() -> None:
     try:
         # File paths
-        train_data_path = "./data/raw/train.csv"
-        test_data_path = "./data/raw/test.csv"
-        processed_data_path = os.path.join("data", "processed")
-        os.makedirs(processed_data_path, exist_ok=True)
+        train_data_path = "./data/external/train.csv"
+        test_data_path = "./data/external/test.csv"
+        interim_data_path = os.path.join("data", "interim")  # Save to data/interim
+
+        # Ensure directories exist
+        os.makedirs(interim_data_path, exist_ok=True)
 
         # Load and process data
         train_data = load_data(train_data_path)
@@ -123,8 +125,8 @@ def main() -> None:
         test_processed_data = normalize_text(test_data)
 
         # Save processed data
-        save_processed_data(train_processed_data, os.path.join(processed_data_path, "train_processed.csv"))
-        save_processed_data(test_processed_data, os.path.join(processed_data_path, "test_processed.csv"))
+        save_processed_data(train_processed_data, os.path.join(interim_data_path, "train_processed.csv"))
+        save_processed_data(test_processed_data, os.path.join(interim_data_path, "test_processed.csv"))
     except Exception as e:
         logging.error(f"Main execution error: {e}")
 
